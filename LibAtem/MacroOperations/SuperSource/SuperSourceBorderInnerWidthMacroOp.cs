@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderInnerWidth, 8)]
-    public class SuperSourceBorderInnerWidthMacroOp : MacroOpBase
+    public class SuperSourceBorderInnerWidthMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt32D(65536, 0, 16 * 65536)]
         [MacroField("InnerWidth")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderInnerWidth,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderInnerWidth,
+                SSrcId = SSrcId,
                 BorderInnerWidth = InnerWidth,
             };
         }

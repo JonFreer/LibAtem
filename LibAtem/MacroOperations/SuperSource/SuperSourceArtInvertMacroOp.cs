@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtInvert, 8)]
-    public class SuperSourceArtInvertMacroOp : MacroOpBase
+    public class SuperSourceArtInvertMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), Bool]
         [MacroField("Invert")]
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtInvertKey,
+                SSrcId = SSrcId,
                 ArtInvertKey = Invert,
             };
         }

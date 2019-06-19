@@ -55,6 +55,12 @@ namespace LibAtem.Common
         Four = 3,
     }
 
+    public enum SuperSourceId
+    {
+        One = 0,
+        Two = 1,
+    }
+
     public enum SuperSourceBoxId
     {
         [XmlEnum("0")]

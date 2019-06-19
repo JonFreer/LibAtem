@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderSaturation, 8)]
-    public class SuperSourceBorderSaturationMacroOp : MacroOpBase
+    public class SuperSourceBorderSaturationMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt32DScale(65536)]
         [MacroField("Saturation")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderSaturation,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderSaturation,
+                SSrcId = SSrcId,
                 BorderSaturation = Saturation,
             };
         }

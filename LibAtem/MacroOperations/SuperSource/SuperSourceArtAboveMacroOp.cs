@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtAbove, 8)]
-    public class SuperSourceArtAboveMacroOp : MacroOpBase
+    public class SuperSourceArtAboveMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), Bool]
         [MacroField("SuperSourceArtAbove", "artAbove")]
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtOption,
+                SSrcId = SSrcId,
                 ArtOption = ArtAbove ? SuperSourceArtOption.Foreground : SuperSourceArtOption.Background,
             };
         }

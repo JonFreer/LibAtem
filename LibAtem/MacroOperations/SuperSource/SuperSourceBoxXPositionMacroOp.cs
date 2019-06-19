@@ -17,7 +17,8 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourceBoxSetCommand()
             {
                 Mask = SuperSourceBoxSetCommand.MaskFlags.PositionX,
-                Index = BoxIndex,
+                SSrcId = SSrcId,
+                BoxIndex = BoxIndex,
                 PositionX = PositionX,
             };
         }

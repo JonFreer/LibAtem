@@ -17,7 +17,8 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourceBoxSetCommand()
             {
                 Mask = SuperSourceBoxSetCommand.MaskFlags.CropRight,
-                Index = BoxIndex,
+                SSrcId = SSrcId,
+                BoxIndex = BoxIndex,
                 CropRight = Right,
             };
         }

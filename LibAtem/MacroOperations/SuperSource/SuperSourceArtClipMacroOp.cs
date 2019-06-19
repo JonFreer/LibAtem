@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtClip, 8)]
-    public class SuperSourceArtClipMacroOp : MacroOpBase
+    public class SuperSourceArtClipMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt16D(65536, 0, 65536)]
         [MacroField("Clip")]
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtClip,
+                SSrcId = SSrcId,
                 ArtClip = Clip,
             };
         }

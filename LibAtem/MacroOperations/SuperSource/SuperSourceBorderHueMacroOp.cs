@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderHue, 8)]
-    public class SuperSourceBorderHueMacroOp : MacroOpBase
+    public class SuperSourceBorderHueMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt32D(65536, 0, 65536 * 360)]
         [MacroField("Hue")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderHue,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderHue,
+                SSrcId = SSrcId,
                 BorderHue = Hue,
             };
         }

@@ -6,9 +6,9 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtFillInput, 8)]
-    public class SuperSourceArtFillInputMacroOp : MacroOpBase
+    public class SuperSourceArtFillInputMacroOp : SuperSourceMacroOpBase
     {
-        [Serialize(4), Enum16]
+        [Serialize(6), Enum16]
         [MacroField("Input")]
         public VideoSource Source { get; set; }
 
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtFillSource,
+                SSrcId = SSrcId,
                 ArtFillSource = Source,
             };
         }

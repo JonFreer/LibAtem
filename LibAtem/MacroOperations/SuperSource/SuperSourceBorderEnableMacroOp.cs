@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderEnable, 8)]
-    public class SuperSourceBorderEnableMacroOp : MacroOpBase
+    public class SuperSourceBorderEnableMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), Bool]
         [MacroField("Enable")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderEnabled,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderEnabled,
+                SSrcId = SSrcId,
                 BorderEnabled = Enable,
             };
         }

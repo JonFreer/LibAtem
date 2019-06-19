@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceShadowDirection, 8)]
-    public class SuperSourceShadowDirectionMacroOp : MacroOpBase
+    public class SuperSourceShadowDirectionMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt32D(65536, 0, 65536 * 360)]
         [MacroField("Direction")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderLightSourceDirection,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderLightSourceDirection,
+                SSrcId = SSrcId,
                 BorderLightSourceDirection = Direction,
             };
         }

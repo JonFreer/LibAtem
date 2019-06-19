@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtPreMultiply, 8)]
-    public class SuperSourceArtPreMultiplyMacroOp : MacroOpBase
+    public class SuperSourceArtPreMultiplyMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), Bool]
         [MacroField("PreMultiply")]
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtPreMultiplied,
+                SSrcId = SSrcId,
                 ArtPreMultiplied = PreMultiply,
             };
         }

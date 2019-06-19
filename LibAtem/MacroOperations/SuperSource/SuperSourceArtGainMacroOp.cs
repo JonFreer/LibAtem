@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtGain, 8)]
-    public class SuperSourceArtGainMacroOp : MacroOpBase
+    public class SuperSourceArtGainMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt16D(65536, 0, 65536)]
         [MacroField("Gain")]
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtGain,
+                SSrcId = SSrcId,
                 ArtGain = Gain,
             };
         }

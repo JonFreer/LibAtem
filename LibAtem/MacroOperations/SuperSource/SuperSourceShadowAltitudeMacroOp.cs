@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceShadowAltitude, 8)]
-    public class SuperSourceShadowAltitudeMacroOp : MacroOpBase
+    public class SuperSourceShadowAltitudeMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt16Range(10, 100)]
         [MacroField("Altitude")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderLightSourceAltitude,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderLightSourceAltitude,
+                SSrcId = SSrcId,
                 BorderLightSourceAltitude = Altitude,
             };
         }

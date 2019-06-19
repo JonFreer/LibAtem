@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtCutInput, 8)]
-    public class SuperSourceArtCutInputMacroOp : MacroOpBase
+    public class SuperSourceArtCutInputMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), Enum16]
         [MacroField("Input")]
@@ -17,6 +17,7 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourcePropertiesSetCommand()
             {
                 Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtCutSource,
+                SSrcId = SSrcId,
                 ArtCutSource = Source,
             };
         }

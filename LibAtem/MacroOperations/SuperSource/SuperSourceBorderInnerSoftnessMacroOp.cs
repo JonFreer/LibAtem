@@ -6,7 +6,7 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderInnerSoftness, 8)]
-    public class SuperSourceBorderInnerSoftnessMacroOp : MacroOpBase
+    public class SuperSourceBorderInnerSoftnessMacroOp : SuperSourceMacroOpBase
     {
         [Serialize(4), UInt8Range(0, 100)]
         [MacroField("InnerSoftness")]
@@ -14,9 +14,10 @@ namespace LibAtem.MacroOperations.SuperSource
 
         public override ICommand ToCommand()
         {
-            return new SuperSourcePropertiesSetCommand()
+            return new SuperSourceBorderSetCommand()
             {
-                Mask = SuperSourcePropertiesSetCommand.MaskFlags.BorderInnerSoftness,
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderInnerSoftness,
+                SSrcId = SSrcId,
                 BorderInnerSoftness = InnerSoftness,
             };
         }

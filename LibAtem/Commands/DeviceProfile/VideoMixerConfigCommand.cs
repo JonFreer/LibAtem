@@ -81,6 +81,8 @@ namespace LibAtem.Commands.DeviceProfile
                 VideoMode someMode = (VideoMode)Math.Floor(Math.Log(cmd.GetUInt32(), 2)); // TODO - should be mask
                 Modes.Add(new Entry(mode, mvMode, someMode));
             }
+
+            cmd.Skip(8); // TODO - check for anything interesting?
         }
     }
 }

@@ -2,7 +2,7 @@ using LibAtem.Serialization;
 
 namespace LibAtem.Commands.DeviceProfile
 {
-    [CommandName("_MvC", 8), NoCommandId]
+    [CommandName("_MvC", 12), NoCommandId]
     public class MultiviewerConfigCommand : SerializableCommandBase
     {
         [Serialize(0), UInt8]
