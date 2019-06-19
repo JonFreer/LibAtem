@@ -2,6 +2,7 @@ using LibAtem.Commands;
 using LibAtem.Commands.Settings.Multiview;
 using LibAtem.Common;
 using LibAtem.Serialization;
+using System;
 
 namespace LibAtem.MacroOperations.Settings
 {
@@ -14,15 +15,18 @@ namespace LibAtem.MacroOperations.Settings
         
         [Serialize(5), Enum8]
         [MacroField("Layout")]
-        public MultiViewLayout Layout { get; set; }
+        public MultiViewLayoutOld Layout { get; set; }
 
         public override ICommand ToCommand()
         {
+            if (!Enum.TryParse(Layout.ToString(), true, out MultiViewLayout layout))
+                layout = 0;
+
             return new MultiviewPropertiesSetCommand
             {
                 Mask = MultiviewPropertiesSetCommand.MaskFlags.Layout,
                 MultiviewIndex = MultiViewIndex,
-                Layout = Layout,
+                Layout = layout
             };
         }
     }

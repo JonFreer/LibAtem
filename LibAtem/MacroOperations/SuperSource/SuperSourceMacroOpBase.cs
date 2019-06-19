@@ -8,7 +8,7 @@ namespace LibAtem.MacroOperations.SuperSource
     {
         [CommandId]
         [Serialize(4), Enum8]
-        [MacroField("SuperSourceIndex", "index")] // TODO - verify
+        [MacroField("SuperSourceIndex", "superSource")]
         public SuperSourceId SSrcId { get; set; }
     }
 

@@ -6,9 +6,27 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceArtPreMultiply, 8)]
-    public class SuperSourceArtPreMultiplyMacroOp : SuperSourceMacroOpBase
+    public class SuperSourceArtPreMultiplyMacroOp : MacroOpBase
     {
         [Serialize(4), Bool]
+        [MacroField("PreMultiply")]
+        public bool PreMultiply { get; set; }
+
+        public override ICommand ToCommand()
+        {
+            return new SuperSourcePropertiesSetCommand()
+            {
+                Mask = SuperSourcePropertiesSetCommand.MaskFlags.ArtPreMultiplied,
+                SSrcId = SuperSourceId.One,
+                ArtPreMultiplied = PreMultiply,
+            };
+        }
+    }
+
+    [MacroOperation(MacroOperationType.SuperSourceV2ArtPreMultiply, 8)]
+    public class SuperSourceV2ArtPreMultiplyMacroOp : SuperSourceMacroOpBase
+    {
+        [Serialize(6), Bool]
         [MacroField("PreMultiply")]
         public bool PreMultiply { get; set; }
 

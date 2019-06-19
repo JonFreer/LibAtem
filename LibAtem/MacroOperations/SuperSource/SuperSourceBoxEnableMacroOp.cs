@@ -17,6 +17,25 @@ namespace LibAtem.MacroOperations.SuperSource
             return new SuperSourceBoxSetCommand()
             {
                 Mask = SuperSourceBoxSetCommand.MaskFlags.Enabled,
+                SSrcId = SuperSourceId.One,
+                BoxIndex = BoxIndex,
+                Enabled = Enable,
+            };
+        }
+    }
+
+    [MacroOperation(MacroOperationType.SuperSourceV2BoxEnable, 12)]
+    public class SuperSourceV2BoxEnableMacroOp : SuperSourceV2BoxMacroOpBase
+    {
+        [Serialize(8), Bool]
+        [MacroField("Enable")]
+        public bool Enable { get; set; }
+
+        public override ICommand ToCommand()
+        {
+            return new SuperSourceBoxSetCommand()
+            {
+                Mask = SuperSourceBoxSetCommand.MaskFlags.Enabled,
                 SSrcId = SSrcId,
                 BoxIndex = BoxIndex,
                 Enabled = Enable,

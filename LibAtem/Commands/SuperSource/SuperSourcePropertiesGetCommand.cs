@@ -6,6 +6,7 @@ namespace LibAtem.Commands.SuperSource
     [CommandName("SSrc", 16)]
     public class SuperSourcePropertiesGetCommand : SerializableCommandBase
     {
+        [CommandId]
         [Serialize(0), Enum8]
         public SuperSourceId SSrcId { get; set; }
 

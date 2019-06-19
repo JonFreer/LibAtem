@@ -6,9 +6,27 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderLuminescence, 8)]
-    public class SuperSourceBorderLuminescenceMacroOp : SuperSourceMacroOpBase
+    public class SuperSourceBorderLuminescenceMacroOp : MacroOpBase
     {
         [Serialize(4), UInt32DScale]
+        [MacroField("Luma")]
+        public double Luma { get; set; }
+
+        public override ICommand ToCommand()
+        {
+            return new SuperSourceBorderSetCommand()
+            {
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderLuma,
+                SSrcId = SuperSourceId.One,
+                BorderLuma = Luma,
+            };
+        }
+    }
+
+    [MacroOperation(MacroOperationType.SuperSourceV2BorderLuminescence, 12)]
+    public class SuperSourceV2BorderLuminescenceMacroOp : SuperSourceMacroOpBase
+    {
+        [Serialize(8), UInt32DScale]
         [MacroField("Luma")]
         public double Luma { get; set; }
 

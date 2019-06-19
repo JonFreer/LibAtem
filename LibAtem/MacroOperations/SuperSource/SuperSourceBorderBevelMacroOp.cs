@@ -6,9 +6,27 @@ using LibAtem.Serialization;
 namespace LibAtem.MacroOperations.SuperSource
 {
     [MacroOperation(MacroOperationType.SuperSourceBorderBevel, 8)]
-    public class SuperSourceBorderBevelMacroOp : SuperSourceMacroOpBase
+    public class SuperSourceBorderBevelMacroOp : MacroOpBase
     {
         [Serialize(4), Enum8]
+        [MacroField("Bevel")]
+        public BorderBevel Bevel { get; set; }
+
+        public override ICommand ToCommand()
+        {
+            return new SuperSourceBorderSetCommand()
+            {
+                Mask = SuperSourceBorderSetCommand.MaskFlags.BorderBevel,
+                SSrcId = SuperSourceId.One,
+                BorderBevel = Bevel,
+            };
+        }
+    }
+
+    [MacroOperation(MacroOperationType.SuperSourceV2BorderBevel, 8)]
+    public class SuperSourceV2BorderBevelMacroOp : SuperSourceMacroOpBase
+    {
+        [Serialize(6), Enum8]
         [MacroField("Bevel")]
         public BorderBevel Bevel { get; set; }
 

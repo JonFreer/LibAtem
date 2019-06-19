@@ -12,4 +12,12 @@ namespace LibAtem.Common
         ProgramLeft = TopRightSmall | BottomRightSmall,
         ProgramTop = BottomLeftSmall | BottomRightSmall
     }
+
+    public enum MultiViewLayoutOld
+    {
+        ProgramTop = 0,
+        ProgramBottom = 1,
+        ProgramLeft = 2,
+        ProgramRight = 3,
+    }
 }

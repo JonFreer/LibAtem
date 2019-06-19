@@ -33,7 +33,12 @@ namespace LibAtem.Commands.Settings.Multiview
         public override IEnumerable<MacroOpBase> ToMacroOps()
         {
             if (Mask.HasFlag(MaskFlags.Layout))
-                yield return new MultiViewLayoutMacroOp {MultiViewIndex = MultiviewIndex, Layout = Layout};
+            {
+                if (!Enum.TryParse(Layout.ToString(), true, out MultiViewLayoutOld layout))
+                    layout = 0;
+
+                yield return new MultiViewLayoutMacroOp { MultiViewIndex = MultiviewIndex, Layout = layout };
+            }
             if (Mask.HasFlag(MaskFlags.SafeAreaEnabled))
                 yield return null;
             if (Mask.HasFlag(MaskFlags.ProgramPreviewSwapped))
