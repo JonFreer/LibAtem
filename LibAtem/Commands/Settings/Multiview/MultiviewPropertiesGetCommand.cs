@@ -12,8 +12,6 @@ namespace LibAtem.Commands.Settings.Multiview
         [Serialize(1), Enum8]
         public MultiViewLayout Layout { get; set; }
         [Serialize(2), Bool]
-        public bool SafeAreaEnabled { get; set; }
-        [Serialize(3), Bool]
         public bool ProgramPreviewSwapped { get; set; }
     }
 }

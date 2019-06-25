@@ -14,6 +14,7 @@ namespace LibAtem.Commands.Settings.Multiview
         public enum MaskFlags
         {
             Layout = 1 << 0,
+            ProgramPreviewSwapped = 1 << 1,
         }
 
         [Serialize(0), Enum8]
@@ -23,6 +24,8 @@ namespace LibAtem.Commands.Settings.Multiview
         public uint MultiviewIndex { get; set; }
         [Serialize(2), Enum8]
         public MultiViewLayout Layout { get; set; }
+        [Serialize(3), Bool]
+        public bool ProgramPreviewSwapped { get; set; }
 
         public override IEnumerable<MacroOpBase> ToMacroOps()
         {
