@@ -202,8 +202,7 @@ namespace LibAtem.Common
 
         [VideoSourceType(InternalPortType.SuperSource, 1)]
         [VideoSourceAvailability(SourceAvailability.All & ~SourceAvailability.SuperSourceArt, MeAvailability.All)]
-        [VideoSourceDefaults("SuperSource 1", "SS1")]
-        //[VideoSourceDefaults("SuperSource", "SSrc")]
+        [VideoSourceDefaults("SuperSource", "SSrc")]
         [XmlEnum("6000")]
         SuperSource = 6000,
         [VideoSourceType(InternalPortType.SuperSource, 1)]
