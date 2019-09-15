@@ -113,6 +113,7 @@ namespace LibAtem.Common
         [VideoSourceDefaults("Camera 20", "Cm20")]
         [XmlEnum("20")]
         Input20 = 20,
+        // TODO - more
 
         [VideoSourceType(InternalPortType.ColorBars, 0)]
         [VideoSourceAvailability(SourceAvailability.All, MeAvailability.All)]
@@ -201,9 +202,15 @@ namespace LibAtem.Common
 
         [VideoSourceType(InternalPortType.SuperSource, 1)]
         [VideoSourceAvailability(SourceAvailability.All & ~SourceAvailability.SuperSourceArt, MeAvailability.All)]
-        [VideoSourceDefaults("SuperSource", "SSrc")]
+        [VideoSourceDefaults("SuperSource 1", "SS1")]
+        //[VideoSourceDefaults("SuperSource", "SSrc")]
         [XmlEnum("6000")]
         SuperSource = 6000,
+        [VideoSourceType(InternalPortType.SuperSource, 1)]
+        [VideoSourceAvailability(SourceAvailability.All & ~SourceAvailability.SuperSourceArt, MeAvailability.All)]
+        [VideoSourceDefaults("SuperSource 2", "SS2")]
+        [XmlEnum("6001")]
+        SuperSource2 = 6001,
 
         [VideoSourceType(InternalPortType.MEOutput, 0)]
         [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer)]
@@ -215,6 +222,16 @@ namespace LibAtem.Common
         [VideoSourceDefaults("Clean Feed 2", "Cfd2")]
         [XmlEnum("7002")]
         CleanFeed2 = 7002,
+        [VideoSourceType(InternalPortType.MEOutput, 0)]
+        [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer)]
+        [VideoSourceDefaults("Clean Feed 3", "Cfd3")]
+        [XmlEnum("7003")]
+        CleanFeed3 = 7003,
+        [VideoSourceType(InternalPortType.MEOutput, 0)]
+        [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer)]
+        [VideoSourceDefaults("Clean Feed 4", "Cfd4")]
+        [XmlEnum("7004")]
+        CleanFeed4 = 7004,
 
         [VideoSourceType(InternalPortType.Auxiliary, 1)]
         [VideoSourceAvailability(SourceAvailability.Multiviewer)]
@@ -246,6 +263,7 @@ namespace LibAtem.Common
         [VideoSourceDefaults("Auxiliary 6", "Aux6")]
         [XmlEnum("8006")]
         Auxilary6 = 8006,
+        // TODO - more
 
         [VideoSourceType(InternalPortType.MEOutput, 1)]
         [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer)]
@@ -263,6 +281,22 @@ namespace LibAtem.Common
         [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer | SourceAvailability.SuperSourceBox, MeAvailability.Me1)]
         [XmlEnum("10021")]
         ME2Prev = 10021,
+        [VideoSourceType(InternalPortType.MEOutput, 3)]
+        [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer | SourceAvailability.SuperSourceBox, MeAvailability.Me1 | MeAvailability.Me2)]
+        [XmlEnum("10030")]
+        ME3Prog = 10030,
+        [VideoSourceType(InternalPortType.MEOutput, 3)]
+        [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer | SourceAvailability.SuperSourceBox, MeAvailability.Me1 | MeAvailability.Me2)]
+        [XmlEnum("10031")]
+        ME3Prev = 10031,
+        [VideoSourceType(InternalPortType.MEOutput, 4)]
+        [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer | SourceAvailability.SuperSourceBox, MeAvailability.Me1 | MeAvailability.Me2 | MeAvailability.Me3)]
+        [XmlEnum("10040")]
+        ME4Prog = 10040,
+        [VideoSourceType(InternalPortType.MEOutput, 4)]
+        [VideoSourceAvailability(SourceAvailability.Auxiliary | SourceAvailability.Multiviewer | SourceAvailability.SuperSourceBox, MeAvailability.Me1 | MeAvailability.Me2 | MeAvailability.Me3)]
+        [XmlEnum("10041")]
+        ME4Prev = 10041,
     }
 
     public static class VideoSourceLists

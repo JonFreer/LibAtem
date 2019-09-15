@@ -174,6 +174,7 @@ namespace LibAtem.Net
                     Log.DebugFormat("{0} - Parsed {1} commands with length {2}", Endpoint, packet.Commands.Count, packet.PayloadLength);
                         
                     _processQueue.Add(packet);
+
                     OnReceivePacket?.Invoke(this, packet);
                 }
                 // Note: Handshake is handled elsewhere
