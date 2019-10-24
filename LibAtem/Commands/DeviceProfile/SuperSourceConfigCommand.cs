@@ -1,11 +1,16 @@
+using LibAtem.Common;
 using LibAtem.Serialization;
 
 namespace LibAtem.Commands.DeviceProfile
 {
-    [CommandName("_SSC", 4), NoCommandId]
+    [CommandName("_SSC", 4)]
     public class SuperSourceConfigCommand : SerializableCommandBase
     {
-        [Serialize(0), UInt8]
+        [CommandId]
+        [Serialize(0), Enum8]
+        public SuperSourceId SSrcId { get; set; }
+
+        [Serialize(2), UInt8]
         public uint Boxes { get; set; }
     }
 }
