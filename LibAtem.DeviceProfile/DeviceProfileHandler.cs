@@ -162,6 +162,7 @@ namespace LibAtem.DeviceProfile
 
         private void StoreVideoMixerConfig(VideoMixerConfigCommand cmd)
         {
+            Profile.VideoModes.SupportedModes = new List<VideoMode> { }; //resest the list
             foreach (VideoMixerConfigCommand.Entry m in cmd.Modes) {
                 Profile.VideoModes.SupportedModes.Add(m.Mode);
             }
