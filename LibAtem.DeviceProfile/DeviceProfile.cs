@@ -57,7 +57,7 @@ namespace LibAtem.DeviceProfile
     public class VideoModeSet
     {
         public List<VideoMode> SupportedModes { get; set; }
-
+        public List<VideoMode> MutliViewMode { get; set; }
         /*
         [XmlAttribute("minimumSupported")]
         public VideoModeStandard MinimumSupported { get; set; }

@@ -15,6 +15,8 @@ namespace LibAtem.State
         public IReadOnlyList<HyperdeckState> Hyperdecks { get; set; } = new List<HyperdeckState>();
 
         public VideoMode VideoMode { get; set; }
+
+        public VideoMode MultiViewVideoMode { get; set; }
         public SerialMode SerialMode { get; set; }
 
         public SDI3GOutputLevel SDI3GLevel { get; set; }
