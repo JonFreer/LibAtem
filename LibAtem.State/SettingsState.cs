@@ -42,8 +42,10 @@ namespace LibAtem.State
         {
             public string ShortName { get; set; }
             public string LongName { get; set; }
+
+            public VideoSource Id { get; set; }
             // public bool AreNamesDefault { get; set; }
-            
+
             public ExternalPortTypeFlags AvailableExternalPortTypes { get; set; }
             public ExternalPortTypeFlags CurrentExternalPortType { get; set; }
         }

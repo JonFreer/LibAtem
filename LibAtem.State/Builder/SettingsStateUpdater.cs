@@ -51,6 +51,7 @@ namespace LibAtem.State.Builder
             
                 props.Properties.LongName = propsCmd.LongName;
                 props.Properties.ShortName = propsCmd.ShortName;
+                props.Properties.Id = propsCmd.Id;
 
                 // Tuple<string, string> defaultName = propsCmd.Id.GetDefaultName(profile);
                 // props.AreNamesDefault = propsCmd.LongName == defaultName.Item1 && propsCmd.ShortName == defaultName.Item2;
